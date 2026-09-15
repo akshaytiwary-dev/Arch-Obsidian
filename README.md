@@ -62,6 +62,8 @@ When you execute `./install.sh`, it safely and automatically handles the entire 
 
 ## ⌨️ Keybindings Cheat Sheet
 
+> 📖 **Full Keybindings Guide**: For an exhaustive, searchable list of every shortcut (including dedicated hardware buttons like the **HP Omen key** -> Zen Browser and the **Calculator key** -> File Manager), check out [**`KEYBINDINGS.md`**](KEYBINDINGS.md).
+
 The default modifier key is **`SUPER`** (the Windows key).
 
 ### 🪟 Window Management
