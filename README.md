@@ -23,7 +23,7 @@ Run the following commands on your Arch Linux system:
 
 ```bash
 # 1. Clone this repository
-git clone https://github.com/YOUR_GITHUB_USERNAME/dotfiles.git ~/dotfiles
+git clone https://github.com/akshaytiwary-dev/Arch-Obsidian.git ~/dotfiles
 
 # 2. Enter directory and run the installer
 cd ~/dotfiles
