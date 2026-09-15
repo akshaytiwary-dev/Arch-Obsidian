@@ -1,0 +1,19 @@
+# Caches & Logs
+**/cache/
+**/logs/
+**/*.log
+**/.cache/
+**/__pycache__/
+
+# Secret & History Files
+**/clipboard-history.json
+**/history
+**/.bash_history
+**/.zsh_history
+**/bookmarks
+
+# Backup & Temporary files
+**/*.bak*
+**/*.tmp*
+**/*~
+**/.DS_Store

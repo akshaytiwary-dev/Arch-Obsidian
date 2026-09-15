@@ -1,0 +1,31 @@
+.information {
+  .clock {
+    @include module;
+  }
+
+  .client-title {
+    @include module;
+  }
+
+  .music-widget {
+    @include module;
+    
+    .music-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+
+      &.playing {
+        color: $secondary;
+      }
+      
+      &.paused {
+        color: $grey;
+      }
+      
+      &.stopped {
+        color: rgba($foreground, 0.4);
+      }
+    }
+  }
+}

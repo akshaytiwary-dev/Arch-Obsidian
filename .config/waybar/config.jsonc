@@ -1,0 +1,131 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 6,
+    "reload_style_on_change": true,
+    
+    // Optimizations to prevent jitter and disappearance
+    "ipc": true,
+    "exclusive": true,
+    "passthrough": false,
+    "modifier-reset": "release",
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "hyprland/window",
+        "custom/music"
+    ],
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "network",
+        "bluetooth",
+        "cpu",
+        "memory",
+        "temperature",
+        "battery",
+        "clock"
+    ],
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "persistent-workspaces": {
+            "*": 10
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        }
+    },
+    "hyprland/window": {
+        "separate-outputs": true,
+        "max-length": 80
+    },
+    "tray": {
+        "spacing": 8
+    },
+    "clock": {
+        "interval": 1,
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M:%S}",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "interval": 2,
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 5,
+        "format": "{}% "
+    },
+    "temperature": {
+        "interval": 5,
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "interval": 3,
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname} ",
+        "tooltip": false,
+        "format-linked": "{ifname} (no IP)",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "~/.config/waybar/scripts/toggle-flyout.sh network",
+        "on-click-right": "nm-connection-editor"
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": " off",
+        "format-connected": " {num_connections}",
+        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/toggle-flyout.sh bluetooth",
+        "on-click-right": "blueman-manager"
+    },
+    "pulseaudio": {
+        "scroll-step": 2,
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/music": {
+        "format": "{}",
+        "escape": true,
+        "return-type": "json",
+        "exec": "python3 ~/.config/waybar/scripts/waybar-music.py",
+        "on-click": "eww open --toggle music_player",
+        "on-click-right": "playerctl play-pause",
+        "on-click-middle": "playerctl next",
+        "on-scroll-up": "playerctl volume 0.05+",
+        "on-scroll-down": "playerctl volume 0.05-",
+        "tooltip": true
+    }
+}

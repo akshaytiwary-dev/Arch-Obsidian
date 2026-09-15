@@ -1,0 +1,63 @@
+;; Dynamic Animated Music Player Popup for Eww
+;; Event-driven MPRIS state + Live Cava visualizer + Spinning vinyl
+
+(deflisten music :initial "{}" "python3 ~/.config/eww/scripts/metadata.py")
+(deflisten cava :initial "              " "bash ~/.config/eww/scripts/cava.sh")
+
+(defwidget music_layout []
+  (eventbox :onhover "~/.config/eww/scripts/popup_manager.sh enter-popup"
+            :onhoverlost "~/.config/eww/scripts/popup_manager.sh leave-popup"
+    (box :class "music-box" :orientation "horizontal" :space-evenly false
+      
+      ;; Left Panel: Album Sleeve & Sliding Vinyl Disc
+      (box :class "cover-container" :orientation "horizontal" :space-evenly false
+        (box :class "album-art"
+             :style {music.art != "" ? "background-image: url('${music.art}');" : "background-image: url('~/.config/eww/assets/default_cover.png');"})
+        (box :class "vinyl-disc ${music.status == 'Playing' ? 'spinning' : 'paused'}"))
+      
+      ;; Right Panel: Details, Cava Visualizer, Progress & Controls
+      (box :class "track-info" :orientation "vertical" :valign "center" :hexpand true :space-evenly false
+        
+        ;; Track Metadata
+        (box :class "metadata-header" :orientation "vertical" :space-evenly false
+          (label :class "title" :text {music.title != "" ? music.title : "No playback"} :limit-width 22 :halign "start")
+          (label :class "artist" :text {music.artist != "" ? music.artist : "Unknown Artist"} :limit-width 24 :halign "start")
+          (label :class "album" :text {music.album != "" ? music.album : ""} :limit-width 28 :halign "start"))
+        
+        ;; Live Cava Audio Visualizer Bars
+        (box :class "cava-container" :halign "start"
+          (label :class "cava-bars" :text cava))
+        
+        ;; Progress Slider
+        (box :orientation "vertical" :space-evenly false :class "progress-container"
+          (scale :class "progress-bar"
+                 :min 0
+                 :max 101
+                 :active true
+                 :value {music.position != "" ? music.position : 0}
+                 :onchange "~/.config/eww/scripts/control.sh seek {} ${music.duration}")
+          
+          ;; Time counters
+          (box :class "time-box" :orientation "horizontal" :space-evenly false
+            (label :class "time-pos" :text {music.position_str != "" ? music.position_str : "00:00"} :halign "start")
+            (box :hexpand true)
+            (label :class "time-dur" :text {music.duration_str != "00:00" ? music.duration_str : "--:--"} :halign "end")))
+        
+        ;; Playback Controls
+        (box :class "controls" :orientation "horizontal" :halign "center" :space-evenly false :spacing 20
+          (button :class "btn btn-prev" :onclick "playerctl previous 2>/dev/null || playerctl position 10-" "⏮")
+          (button :class "btn btn-play ${music.status == 'Playing' ? 'playing' : 'paused'}" :onclick "playerctl play-pause" {music.status_icon != "" ? music.status_icon : ""})
+          (button :class "btn btn-next" :onclick "playerctl next 2>/dev/null || playerctl position 10+" "⏭"))))))
+
+;; Window definition
+(defwindow music_player
+  :monitor 0
+  :geometry (geometry :x "0px"
+                      :y "52px"
+                      :width "430px"
+                      :height "195px"
+                      :anchor "top center")
+  :stacking "fg"
+  :exclusive false
+  :focusable false
+  (music_layout))

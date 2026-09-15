@@ -1,0 +1,155 @@
+# ~/.config/starship.toml
+
+add_newline = false
+
+format = """
+$character\
+$os$hostname\
+$directory\
+[](#1C3A5E)$time[ ](#1C3A5E)$cmd_duration\
+$git_branch\
+$git_status \
+$python\
+$aws\
+$golang\
+$java\
+$rust\
+$ruby\
+$scala\
+$dart\
+$conda\
+$pijul_channel\
+$lua\
+$rlang\
+$package\
+$buf\
+$memory_usage\
+$docker_context
+[└─>](bold #50fa7b)
+"""
+
+
+continuation_prompt = '▶▶ '
+
+[character]
+# success_symbol = "🚀 "
+error_symbol = "X "
+
+[time]
+disabled = false
+time_format = "%r"                                      # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[ 󱑍 $time ](bg:#1C3A5E fg:#8DFBD2)]($style)'
+
+[cmd_duration]
+format = 'last command: [$duration](bold #f1fa8c)'
+
+[os]
+format = '[ ](bold white) '
+disabled = false
+
+[os.symbols]
+Linux = ''
+
+# Shows the hostname
+[hostname]
+ssh_only = false
+format = 'on [$hostname](bold #f1fa8c) '
+disabled = false
+# ssh_symbol = " "
+
+# Shows current directory
+[directory]
+truncation_length = 3
+fish_style_pwd_dir_length = 2
+home_symbol = '󰋜 ~'
+read_only_style = '197'
+read_only = '  '
+style = 'bold #8be9fd'
+format = 'at [$path]($style)[$read_only]($read_only_style) '
+
+# Shows current git branch
+[git_branch]
+symbol = " "
+format = '[$symbol$branch]($style)'
+# truncation_length = 4
+truncation_symbol = '…/'
+style = 'bold #50fa7b'
+
+# Shows current git status
+[git_status]
+format = '[$all_status$ahead_behind]($style) '
+style = 'bold #ff79c6'
+conflicted = '🏳'
+up_to_date = ''
+untracked = ' '
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+stashed = ' '
+modified = ' '
+staged = '[++\($count\)](green)'
+renamed = '襁 '
+deleted = ' '
+
+
+# ---
+
+[aws]
+symbol = " "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[java]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+disabled = true
+style = 'bold dimmed white'
+threshold = 1
+format = "$symbol [${ram}(|${swap})]($style) "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = "󰏗 "
+
+[pijul_channel]
+symbol = " "
+
+[python]
+symbol = " "
+pyenv_version_name = true
+
+[ruby]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "

@@ -1,0 +1,202 @@
+// Import dynamic wallpaper colors extracted by Pywal
+@import "../../.cache/wal/colors.scss";
+
+// Styling design system tokens
+$bg-color: rgba($background, 0.78);
+$fg-color: $foreground;
+$accent-color: $color2;
+$hover-accent: $color3;
+$glow-color: $color4;
+$muted-color: $color8;
+
+* {
+  all: unset;
+  font-family: "Outfit", "Inter", "Ubuntu", sans-serif;
+}
+
+// Main container with frosted glassmorphism and ambient border glow
+.music-box {
+  background-color: $bg-color;
+  border: 1px solid rgba($accent-color, 0.35);
+  border-radius: 22px;
+  padding: 16px 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba($accent-color, 0.18);
+}
+
+// Left panel: Album sleeve and vinyl disc
+.cover-container {
+  min-width: 140px;
+  min-height: 120px;
+  margin-right: 14px;
+}
+
+.album-art {
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  min-width: 110px;
+  min-height: 110px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65), 0 0 22px rgba($accent-color, 0.35);
+  border: 1px solid rgba($fg-color, 0.12);
+  transition: all 0.3s ease;
+}
+
+// Grooved vinyl record disc peeking out from sleeve
+.vinyl-disc {
+  background-image: url('assets/vinyl.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 100px;
+  min-height: 100px;
+  margin-left: -70px;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vinyl-disc.spinning {
+  margin-left: -50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba($accent-color, 0.3);
+}
+
+.vinyl-disc.paused {
+  margin-left: -65px;
+}
+
+// Right panel: Information and controls
+.track-info {
+  margin-left: 10px;
+}
+
+.title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $fg-color;
+}
+
+.artist {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba($fg-color, 0.85);
+  margin-top: 2px;
+}
+
+.album {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba($fg-color, 0.55);
+  margin-top: 1px;
+}
+
+// In-Popup Live Cava Audio Visualizer Bars
+.cava-container {
+  margin-top: 4px;
+}
+
+.cava-bars {
+  font-size: 0.90rem;
+  font-family: "JetBrains Mono", "monospace";
+  color: $accent-color;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba($accent-color, 0.6);
+}
+
+// Smooth progress slider with interactive hover expansion
+.progress-container {
+  margin-top: 8px;
+}
+
+scale.progress-bar {
+  trough {
+    background-color: rgba($fg-color, 0.15);
+    border-radius: 6px;
+    min-height: 5px;
+    transition: min-height 0.2s ease;
+  }
+  
+  &:hover trough {
+    min-height: 7px;
+  }
+  
+  highlight {
+    background: linear-gradient(90deg, $accent-color, $hover-accent);
+    border-radius: 6px;
+    min-height: 5px;
+    box-shadow: 0 0 10px rgba($accent-color, 0.4);
+  }
+  
+  slider {
+    background-color: $fg-color;
+    border-radius: 50%;
+    min-height: 9px;
+    min-width: 9px;
+    margin: -2px 0;
+    box-shadow: 0 0 8px rgba($fg-color, 0.7);
+    transition: all 0.2s ease;
+  }
+  
+  &:hover slider {
+    min-height: 12px;
+    min-width: 12px;
+    margin: -3px 0;
+    box-shadow: 0 0 14px rgba($accent-color, 0.9);
+  }
+}
+
+.time-box {
+  margin-top: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba($fg-color, 0.5);
+}
+
+// Media Controls with tactile micro-animations
+.controls {
+  margin-top: 10px;
+}
+
+.btn {
+  font-size: 1.25rem;
+  color: $fg-color;
+  padding: 4px 12px;
+  border-radius: 10px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    color: $hover-accent;
+    background-color: rgba($accent-color, 0.18);
+  }
+}
+
+.btn-prev:hover {
+  margin-right: 3px;
+  margin-left: -3px;
+}
+
+.btn-next:hover {
+  margin-left: 3px;
+  margin-right: -3px;
+}
+
+.btn-play {
+  font-size: 1.45rem;
+  background-color: rgba($accent-color, 0.2);
+  color: $accent-color;
+  border-radius: 50%;
+  padding: 6px 16px;
+  margin: 0 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  &:hover {
+    background-color: $accent-color;
+    color: $background;
+    padding: 8px 18px;
+    box-shadow: 0 0 20px rgba($accent-color, 0.6);
+  }
+  
+  &:active {
+    padding: 5px 14px;
+  }
+}

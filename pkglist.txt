@@ -1,0 +1,82 @@
+# ==========================================
+# Hyprland Ecosystem & Core Desktop
+# ==========================================
+hyprland
+hyprpaper
+hypridle
+hyprlock
+hyprcursor
+xdg-desktop-portal-hyprland
+waybar
+swaync
+wl-clipboard
+cliphist
+brightnessctl
+pamixer
+pavucontrol
+playerctl
+pipewire
+socat
+jq
+bc
+libnotify
+bluez
+bluez-utils
+network-manager-applet
+networkmanager
+
+# ==========================================
+# Widgets & Dynamic Theming
+# ==========================================
+aylurs-gtk-shell-git
+libastal-meta
+eww
+cava
+python-colorthief
+python-pywal
+wallust
+dart-sass
+sassc
+imagemagick
+mpvpaper
+
+# ==========================================
+# Terminals, Prompts & CLI Tools
+# ==========================================
+kitty
+zsh
+starship
+fastfetch
+btop
+lsd
+bat
+fd
+fzf
+swayimg
+vlc
+grim
+wf-recorder
+
+# ==========================================
+# Zsh Plugins
+# ==========================================
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-history-substring-search
+zsh-sudo-git
+fzf-tab-git
+zsh-auto-notify
+
+# ==========================================
+# Appearance, Fonts & Themes
+# ==========================================
+ttf-jetbrains-mono-nerd
+noto-fonts-emoji
+ttf-font-awesome
+gtk4
+libadwaita
+gnome-themes-extra
+bibata-cursor-theme-bin
+kvantum
+qt5ct
+qt6ct-kde
