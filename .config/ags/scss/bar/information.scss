@@ -1,14 +1,23 @@
 .information {
   .clock {
     @include module;
+    font-size: $FONT-SIZE * 1.177;
+    padding: 1px 6px;
+    min-height: 0px;
   }
 
   .client-title {
     @include module;
+    font-size: $FONT-SIZE * 1.177;
+    padding: 1px 6px;
+    min-height: 0px;
   }
 
   .music-widget {
     @include module;
+    font-size: $FONT-SIZE * 1.177;
+    padding: 1px 6px;
+    min-height: 0px;
     
     .music-text {
       font-size: 0.95rem;

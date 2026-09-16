@@ -119,8 +119,9 @@
       &.is-focused {
         @include button-checked;
         border-radius: 50px;
-        min-width: 32px;
-        padding: 2px 8px;
+        min-width: 30px;
+        padding: 2px 7px;
+        min-height: 22px;
 
         /* Smooth fade-in when gaining focus */
         &.trans-gaining-focus {
