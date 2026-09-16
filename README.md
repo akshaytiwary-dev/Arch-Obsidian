@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌌 Arch-Obsidian
+# <img src="assets/targaryen.png" width="38" height="38" valign="middle" alt="Targaryen Logo" /> Arch-Obsidian
 
 ### A Modern, Minimalist & Aesthetic Hyprland Rice for Arch Linux
 *Featuring dynamic wallpaper-driven color palettes, custom widgets, zero-lag media popup, and fluid animations.*
