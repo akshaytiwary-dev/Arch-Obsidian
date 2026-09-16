@@ -27,6 +27,18 @@
 
 ---
 
+## 📸 Gallery Showcase
+
+| 1. AGS Control Panel (`Super + L`) | 2. Terminal & Fastfetch (`Super + Return`) |
+| :---: | :---: |
+| ![AGS Left Panel](assets/screenshots/left-panel-tools.png) | ![Terminal Fastfetch](assets/screenshots/terminal-fastfetch.png) |
+
+| 3. System Monitor on Workspace 5 (`Super + P`) | 4. SuperSpace Overlay (`Super + S`) |
+| :---: | :---: |
+| ![Btop System Monitor](assets/screenshots/btop-system-monitor.png) | ![SuperSpace Overlay](assets/screenshots/superspace-special-workspace.png) |
+
+---
+
 ## 🚀 Quick Start Installation
 
 > [!IMPORTANT]
@@ -93,6 +105,7 @@ The default modifier key is **`SUPER`** (the Windows key).
 | Keybinding | Action |
 | :--- | :--- |
 | `Super + W` | Open Wallpaper Switcher (Workspace specific) |
+| `Super + S` | **SuperSpace** (Toggle Special Workspace / Scratchpad) |
 | `Super + M` | Toggle AGS Media Player Panel |
 | `Super + L` | Toggle Left Panel (ChatBot & Settings) |
 | `Super + Escape` | Open User Session Panel |

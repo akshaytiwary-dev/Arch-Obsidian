@@ -96,8 +96,8 @@ Supports both **Arrow Keys** and **H / N / C / T** (Dvorak/Vim equivalents):
 | `Super + Shift + 1` .. `Super + Shift + 0` | Silently send active window to Workspace `1` through `10` |
 | `Super + Mouse Scroll Down` | Switch to next workspace (`e+1`) |
 | `Super + Mouse Scroll Up` | Switch to previous workspace (`e-1`) |
-| `Super + S` | Toggle Special Workspace (Scratchpad) |
-| `Super + Ctrl + S` | Move focused window to Special Workspace |
+| `Super + S` | **SuperSpace** (Toggle Special Workspace / Scratchpad overlay) |
+| `Super + Ctrl + S` | Move focused window into **SuperSpace** |
 | `Super + Tab` | Toggle Quickshell Workspace Overview |
 
 ---
