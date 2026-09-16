@@ -118,7 +118,9 @@
       /* Currently focused workspace */
       &.is-focused {
         @include button-checked;
-        min-width: 50px;
+        border-radius: 50px;
+        min-width: 32px;
+        padding: 2px 8px;
 
         /* Smooth fade-in when gaining focus */
         &.trans-gaining-focus {
