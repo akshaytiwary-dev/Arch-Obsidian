@@ -10,6 +10,11 @@
 [![AGS](https://img.shields.io/badge/AGS-Astal%20GTK4-blueviolet?style=flat-square)](https://github.com/Aylur/ags)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
+<br/>
+<br/>
+
+<img src="assets/demo.gif" width="100%" alt="Arch-Obsidian Desktop Showcase" />
+
 </div>
 
 ---
