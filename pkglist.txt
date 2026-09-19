@@ -1,49 +1,101 @@
+# ==============================================================================
+# Arch-Obsidian Complete Package & Dependency Manifest
+# ==============================================================================
+
 # ==========================================
-# Hyprland Ecosystem & Core Desktop
+# Hyprland Core, Portals & Daemons
 # ==========================================
 hyprland
 hyprpaper
 hypridle
 hyprlock
 hyprcursor
+hyprpicker
+hyprpolkitagent
 xdg-desktop-portal-hyprland
-waybar
-swaync
-wl-clipboard
-cliphist
-brightnessctl
+quickshell
+awww
+mpvpaper
+cronie
+power-profiles-daemon
+
+# ==========================================
+# Audio, Bluetooth & Network
+# ==========================================
+pipewire
+wireplumber
 pamixer
 pavucontrol
 playerctl
-pipewire
+bluez
+bluez-utils
+blueman
+networkmanager
+network-manager-applet
+
+# ==========================================
+# Status Bars, Notifications & Widgets
+# ==========================================
+aylurs-gtk-shell-git
+libastal-meta
+waybar
+swaync
+eww
+cava
+yad
+
+# ==========================================
+# Applications & Hardware Keybindings
+# ==========================================
+zen-browser-bin
+thunar
+gvfs
+kitty
+vlc
+
+# ==========================================
+# Screenshots, Screen Recording & Clipboard
+# ==========================================
+grim
+slurp
+grimblast-git
+swappy
+wf-recorder
+swayimg
+wl-clipboard
+cliphist
+
+# ==========================================
+# Dynamic Theming & Wallpaper Engines
+# ==========================================
+wallust
+python-pywal
+python-colorthief
+imagemagick
+ffmpeg
+gst-libav
+dart-sass
+sassc
+
+# ==========================================
+# System Libraries & Runtimes
+# ==========================================
+gtk3
+gtk4
+gtk-layer-shell
+libadwaita
+gnome-themes-extra
+python-gobject
+python-requests
 socat
 jq
 bc
 libnotify
-bluez
-bluez-utils
-network-manager-applet
-networkmanager
+gcc
 
 # ==========================================
-# Widgets & Dynamic Theming
+# Shell, Prompt & CLI Tools
 # ==========================================
-aylurs-gtk-shell-git
-libastal-meta
-eww
-cava
-python-colorthief
-python-pywal
-wallust
-dart-sass
-sassc
-imagemagick
-mpvpaper
-
-# ==========================================
-# Terminals, Prompts & CLI Tools
-# ==========================================
-kitty
 zsh
 starship
 fastfetch
@@ -52,10 +104,9 @@ lsd
 bat
 fd
 fzf
-swayimg
-vlc
-grim
-wf-recorder
+curl
+figlet
+lolcat
 
 # ==========================================
 # Zsh Plugins
@@ -68,15 +119,14 @@ fzf-tab-git
 zsh-auto-notify
 
 # ==========================================
-# Appearance, Fonts & Themes
+# Fonts, Cursors & Desktop Theming
 # ==========================================
 ttf-jetbrains-mono-nerd
 noto-fonts-emoji
-ttf-font-awesome
-gtk4
-libadwaita
-gnome-themes-extra
-bibata-cursor-theme-bin
+otf-font-awesome
+phinger-cursors
+whitesur-gtk-theme
 kvantum
+kvantum-theme-whitesur-git
 qt5ct
-qt6ct-kde
+qt6ct

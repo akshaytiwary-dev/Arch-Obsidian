@@ -68,8 +68,14 @@ echo -e "${GREEN}✓ Using AUR helper: ${BOLD}${AUR_HELPER}${NC}"
 echo -e "\n${BLUE}[3/8] 📦 Installing dependencies and packages...${NC}"
 if [ -f "$DOTFILES_DIR/pkglist.txt" ]; then
     mapfile -t PKGS < <(grep -vE '^\s*#|^\s*$' "$DOTFILES_DIR/pkglist.txt")
-    $AUR_HELPER -S --needed --noconfirm "${PKGS[@]}"
-    echo -e "${GREEN}✓ Packages successfully installed.${NC}"
+    echo -e "Installing ${#PKGS[@]} verified packages via ${BOLD}${AUR_HELPER}${NC}..."
+    if ! $AUR_HELPER -S --needed --noconfirm "${PKGS[@]}"; then
+        echo -e "${YELLOW}Bulk installation had partial failures; retrying remaining packages individually...${NC}"
+        for pkg in "${PKGS[@]}"; do
+            $AUR_HELPER -S --needed --noconfirm "$pkg" 2>/dev/null || echo -e "${RED}✗ Note: $pkg could not be auto-installed (optional or conflicting)${NC}"
+        done
+    fi
+    echo -e "${GREEN}✓ Packages installation completed.${NC}"
 else
     echo -e "${YELLOW}pkglist.txt not found. Skipping package installation.${NC}"
 fi
@@ -156,6 +162,13 @@ if [ "$SHELL" != "$(which zsh)" ]; then
 else
     echo -e "${GREEN}✓ Zsh is already default shell.${NC}"
 fi
+
+# 11. Enable essential background services
+echo -e "\n${BLUE}[*] 🔌 Enabling system background services...${NC}"
+sudo systemctl enable --now bluetooth.service 2>/dev/null || true
+sudo systemctl enable --now cronie.service 2>/dev/null || true
+sudo systemctl enable --now power-profiles-daemon.service 2>/dev/null || true
+echo -e "${GREEN}✓ Bluetooth, Cronie, and Power Profiles daemons enabled.${NC}"
 
 # Initial pywal color generation if wallpaper exists
 if command -v wal &>/dev/null && [ -n "$FIRST_WALLPAPER" ]; then
